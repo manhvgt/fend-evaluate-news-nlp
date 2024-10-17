@@ -24,7 +24,7 @@ The motive of this project is to have you a taste of the environment and tools y
 `cd .\starter_project\`
 `npm run build-dev`
 
-The dev server will be started automatically
+The dev server will be started automatically after building.
 
 To access the app. Open `http://localhost:3000`
 
