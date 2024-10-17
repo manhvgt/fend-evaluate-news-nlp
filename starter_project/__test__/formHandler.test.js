@@ -70,10 +70,12 @@ test('sendToServer should make a POST request and update the view', async () => 
 test('handleSubmit should validate URL and call sendToServer', async () => {
   const event = { preventDefault: jest.fn() };
   document.getElementById('name').value = 'http://example.com';
-  const sendToServerMock = jest.spyOn(require('../src/client/js/formHandler'), 'sendToServer').mockResolvedValue();
+  // const validateUrlMock = jest.spyOn(require('../src/client/js/formHandler'), 'validateUrl').mockResolvedValue();
+  // const sendToServerMock = jest.spyOn(require('../src/client/js/formHandler'), 'sendToServer').mockResolvedValue();
         
   await handleSubmit(event);
   expect(event.preventDefault).toHaveBeenCalled();
+  // expect(validateUrlMock).toHaveBeenCalledWith('http://example.com');
   // expect(sendToServerMock).toHaveBeenCalledWith('http://example.com');
 });
 
