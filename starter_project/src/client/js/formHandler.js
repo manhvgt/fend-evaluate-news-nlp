@@ -1,21 +1,9 @@
-// Replace checkForName with a function that checks the URL
-// import { checkForName } from './nameChecker'
-
-// If working on Udacity workspace, update this with the Server API URL e.g. `https://wfkdhyvtzx.prod.udacity-student-workspaces.com/api`
-// const serverURL = 'https://wfkdhyvtzx.prod.udacity-student-workspaces.com/api'
 const serverURL = 'http://localhost:8000/api'
 
-
-// Variable
-const submitButton = document.getElementById('submitButton');
-const form = document.getElementById('urlForm');
-const outModel = document.getElementById('outModel');
-const outSubjectivity = document.getElementById('outSubjectivity');
-const outConcept = document.getElementById('outConcept');
-const outDetails = document.getElementById('outDetails');
-
 // Add listener
-form.addEventListener('submit', handleSubmit);
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('urlForm').addEventListener('submit', handleSubmit);
+});
 
 // Export the handleSubmit function
 export async function handleSubmit(event) {
@@ -89,15 +77,16 @@ export function validateUrl(url) {
 // Function to upldate View
 export function updateView(data) {
     console.log(data);
-    outModel.innerHTML = `Model: ${data.model}`;
-    outSubjectivity.innerHTML = `Subjectivity: ${data.subjectivity}`;
-    outAgreement.innerHTML = `Agreement: ${data.agreement}`;
+    document.getElementById('outModel').innerHTML = `Model: ${data.model}`;
+    document.getElementById('outSubjectivity').innerHTML = `Subjectivity: ${data.subjectivity}`;
+    document.getElementById('outAgreement').innerHTML = `Agreement: ${data.agreement}`;
     // Use more details data for future function...
     // outConcept.innerHTML = `Concept: ${data.concept}`;
     // outDetails.innerHTML = `Details response: ${JSON.stringify(data)}`;
 }
 
 export function enableSubmitButton(enable) {
+    const submitButton = document.getElementById('submitButton');
     if(enable) {
         submitButton.disabled = false;
         submitButton.classList.remove('disabled');
